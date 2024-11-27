@@ -14,7 +14,4 @@ interface MoviesService {
 
     @GET("configuration")
     suspend fun getConfiguration(): ConfigurationResponse
-    
-    @GET
-    suspend fun getMoviePoster(@Url posterPath: String): String
 }

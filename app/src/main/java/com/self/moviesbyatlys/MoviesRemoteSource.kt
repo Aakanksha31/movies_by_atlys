@@ -7,5 +7,4 @@ class MoviesRemoteSource {
 
     suspend fun getMovies(): List<MovieItem>? = service.getMovies("week", "en-US").results
     suspend fun getImageConfiguration() = service.getConfiguration()
-    suspend fun getMoviePoster(path: String): String = service.getMoviePoster(path)
 }

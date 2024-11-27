@@ -1,6 +1,5 @@
 package com.self.moviesbyatlys.ui.views
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -56,7 +55,7 @@ fun MoviesGrid(list: List<MovieItem>, onItemClicked: (MovieItem) -> Unit) {
         items(list.size) { index -> // Replace with actual movie list size
             MovieCard(
                 item = list[index],
-                onClick = { onItemClicked(list[index])/*navController.navigate(route = Screen.MovieDetailScreen.route + "?id=${id.value}")*/ })
+                onClick = { onItemClicked(list[index])})
         }
     }
 }
