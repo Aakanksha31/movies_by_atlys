@@ -26,6 +26,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
+import com.bumptech.glide.integration.compose.Placeholder
+import com.bumptech.glide.integration.compose.placeholder
 import com.self.moviesbyatlys.LoadingState
 import com.self.moviesbyatlys.MovieItem
 import com.self.moviesbyatlys.R
@@ -57,6 +61,7 @@ fun MoviesGrid(list: List<MovieItem>, onItemClicked: (MovieItem) -> Unit) {
     }
 }
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun MovieCard(item: MovieItem, onClick: () -> Unit) {
     Column(
@@ -72,10 +77,12 @@ fun MovieCard(item: MovieItem, onClick: () -> Unit) {
                 .background(Color.Gray.copy(alpha = 0.4f)),
             contentAlignment = Alignment.Center
         ) {
-            Image(
+            GlideImage(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(id = R.drawable.placeholder),
-                contentDescription = ""
+                model = item.poster,
+                contentDescription = "",
+                loading = placeholder(painterResource(id = R.drawable.placeholder)),
+                failure = placeholder(painterResource(id = R.drawable.placeholder))
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
