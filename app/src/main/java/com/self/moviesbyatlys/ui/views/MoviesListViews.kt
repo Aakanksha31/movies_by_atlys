@@ -21,18 +21,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
-import com.bumptech.glide.integration.compose.Placeholder
 import com.bumptech.glide.integration.compose.placeholder
-import com.self.moviesbyatlys.LoadingState
 import com.self.moviesbyatlys.MovieItem
-import com.self.moviesbyatlys.R
 import com.self.moviesbyatlys.MoviesViewModel
+import com.self.moviesbyatlys.R
 
 
 @Composable
@@ -70,7 +69,7 @@ fun MovieCard(item: MovieItem, onClick: () -> Unit) {
     ) {
         Box(
             modifier = Modifier
-                .height(120.dp)
+                .height(170.dp)
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(8.dp))
                 .background(Color.Gray.copy(alpha = 0.4f)),
@@ -80,6 +79,7 @@ fun MovieCard(item: MovieItem, onClick: () -> Unit) {
                 modifier = Modifier.fillMaxSize(),
                 model = item.poster,
                 contentDescription = "",
+                contentScale = ContentScale.FillBounds,
                 loading = placeholder(painterResource(id = R.drawable.placeholder)),
                 failure = placeholder(painterResource(id = R.drawable.placeholder))
             )

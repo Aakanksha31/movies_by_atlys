@@ -12,15 +12,8 @@ class MoviesViewModel : ViewModel() {
     private var _moviesList = MutableStateFlow<VMState<List<MovieItem>>>(LoadingState())
     val moviesList = _moviesList.asStateFlow()
 
-    private var _selectedMovie = MutableStateFlow(MovieItem.emptyState)
-    val selectedMovie = _selectedMovie.asStateFlow()
-
     init {
         getMoviesList()
-    }
-
-    fun setSelectedItem(item: MovieItem) {
-        _selectedMovie.value = item
     }
 
     private fun getMoviesList() {

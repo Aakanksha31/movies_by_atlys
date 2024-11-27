@@ -1,5 +1,8 @@
 package com.self.moviesbyatlys
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class MovieItem(
     val id: Int,
     val title: String,
