@@ -19,11 +19,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
+import com.bumptech.glide.integration.compose.placeholder
 import com.self.moviesbyatlys.R
 import com.self.moviesbyatlys.MoviesViewModel
 import com.self.moviesbyatlys.ui.theme.IconColour
 
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun MovieDetailScreen(viewModel: MoviesViewModel, onBackClick: () -> Unit) {
     Column(
@@ -54,10 +58,12 @@ fun MovieDetailScreen(viewModel: MoviesViewModel, onBackClick: () -> Unit) {
                 .background(Color.Gray.copy(alpha = 0.4f)),
             contentAlignment = Alignment.Center
         ) {
-            Image(
+            GlideImage(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(id = R.drawable.placeholder),
-                contentDescription = ""
+                model = selectedMovie.value.poster,
+                contentDescription = "",
+                loading = placeholder(painterResource(id = R.drawable.placeholder)),
+                failure = placeholder(painterResource(id = R.drawable.placeholder))
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
