@@ -31,6 +31,33 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun MovieApp(
+    viewModel: MoviesViewModel = viewModel(),
+    navController: NavHostController = rememberNavController()
+) {
+    Scaffold(
+    ) { innerPadding ->
+        NavHost(
+            navController = navController,
+            startDestination = MovieAppScreen.MoviesList.name,
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            composable(route = MovieAppScreen.MoviesList.name) {
+                MovieListScreen(viewModel = viewModel, onItemClicked = {
+                    navController.navigate(MovieAppScreen.MovieDetail.name)
+                })
+            }
+            composable(
+                route = MovieAppScreen.MovieDetail.name
+            ) {
+                MovieDetailScreen(viewModel = viewModel, onBackClick = {
+                    navController.popBackStack(MovieAppScreen.MoviesList.name, inclusive = true)
+                })
+            }
+        }
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
