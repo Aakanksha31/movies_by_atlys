@@ -17,6 +17,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,33 +25,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.self.moviesbyatlys.LoadingState
 import com.self.moviesbyatlys.MovieItem
 import com.self.moviesbyatlys.R
-import com.self.moviesbyatlys.ui.MoviesViewModel
+import com.self.moviesbyatlys.MoviesViewModel
 
 
 @Composable
 fun MovieListScreen(viewModel: MoviesViewModel, onItemClicked: (MovieItem) -> Unit) {
-    val list = listOf(
-        MovieItem(
-            title = "Movie 1",
-            description = "hvfdjkdnvkjdfn",
-            photo = R.drawable.placeholder
-        ),
-        MovieItem(
-            title = "Movie 2",
-            description = "hvfdjkdnvkjdfn",
-            photo = R.drawable.placeholder
-        ),
-        MovieItem(
-            title = "Movie 3",
-            description = "hvfdjkdnvkjdfn",
-            photo = R.drawable.placeholder
-        ),
-    )
-    MoviesGrid(list, onItemClicked)
+    val list by viewModel.moviesList.collectAsStateWithLifecycle()
+    list.data?.let { MoviesGrid(it, onItemClicked) }
 }
 
 @Composable
@@ -89,7 +74,7 @@ fun MovieCard(item: MovieItem, onClick: () -> Unit) {
         ) {
             Image(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(id = item.photo),
+                painter = painterResource(id = R.drawable.placeholder),
                 contentDescription = ""
             )
         }

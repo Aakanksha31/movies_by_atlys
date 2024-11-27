@@ -1,11 +1,13 @@
 package com.self.moviesbyatlys
 
-data class MovieItem (
+data class MovieItem(
+    val id: Int,
     val title: String,
-    val photo: Int,
-    val description: String
+    val poster_path: String,
+    val overview: String,
+    var poster: String
 ) {
-   companion object {
-       val emptyState = MovieItem(title = "", photo = 0, description = "")
-   }
+    companion object {
+        val emptyState = MovieItem(title = "", poster_path = "", overview = "", id = 0, poster = "")
+    }
 }

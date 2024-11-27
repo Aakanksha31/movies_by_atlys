@@ -1,6 +1,10 @@
 [versions]
 agp = "8.5.1"
+converterGson = "2.7.2"
+converterScalars = "2.9.0"
 foundation = "1.7.5"
+hiltAndroid = "2.51"
+hiltNavigationCompose = "1.2.0"
 kotlin = "1.9.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -9,7 +13,10 @@ espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
 composeBom = "2024.04.01"
+loggingInterceptor = "4.11.0"
 material = "1.7.5"
+okhttp = "4.12.0"
+retrofit = "2.7.2"
 runtime = "1.7.5"
 ui = "1.7.5"
 uiTooling = "1.7.5"
@@ -18,9 +25,15 @@ navigationRuntimeKtx = "2.8.4"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "foundation" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose" }
 androidx-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "runtime" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson" }
+converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "converterScalars" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -34,6 +47,10 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
+okhttp3-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+squareup-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "uiTooling" }
 androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }

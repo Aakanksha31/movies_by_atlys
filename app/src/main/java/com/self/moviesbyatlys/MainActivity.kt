@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -11,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.self.moviesbyatlys.ui.MoviesViewModel
 import com.self.moviesbyatlys.ui.views.MovieDetailScreen
 import com.self.moviesbyatlys.ui.theme.MoviesByAtlysTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -22,6 +22,7 @@ import com.self.moviesbyatlys.ui.views.MovieListScreen
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
         setContent {
             MoviesByAtlysTheme {
@@ -44,7 +45,8 @@ fun MovieApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(route = MovieAppScreen.MoviesList.name) {
-                MovieListScreen(viewModel = viewModel, onItemClicked = {
+                MovieListScreen(viewModel = viewModel, onItemClicked = { movieItem ->
+                    viewModel.setSelectedItem(movieItem)
                     navController.navigate(MovieAppScreen.MovieDetail.name)
                 })
             }
@@ -52,7 +54,7 @@ fun MovieApp(
                 route = MovieAppScreen.MovieDetail.name
             ) {
                 MovieDetailScreen(viewModel = viewModel, onBackClick = {
-                    navController.popBackStack(MovieAppScreen.MoviesList.name, inclusive = true)
+                    navController.popBackStack(MovieAppScreen.MoviesList.name, inclusive = false)
                 })
             }
         }

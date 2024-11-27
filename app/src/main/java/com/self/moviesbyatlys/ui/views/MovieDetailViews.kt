@@ -18,10 +18,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.self.moviesbyatlys.MovieItem
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.self.moviesbyatlys.R
-import com.self.moviesbyatlys.ui.MoviesViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
+import com.self.moviesbyatlys.MoviesViewModel
 import com.self.moviesbyatlys.ui.theme.IconColour
 
 
@@ -32,6 +31,7 @@ fun MovieDetailScreen(viewModel: MoviesViewModel, onBackClick: () -> Unit) {
             .fillMaxSize()
             .padding(horizontal = 16.dp, vertical = 24.dp)
     ) {
+        val selectedMovie = viewModel.selectedMovie.collectAsStateWithLifecycle()
         // Back Button
         IconButton(
             onClick = {
@@ -63,12 +63,12 @@ fun MovieDetailScreen(viewModel: MoviesViewModel, onBackClick: () -> Unit) {
         Spacer(modifier = Modifier.height(16.dp))
 
         // Movie Title
-        Text(text = "", fontSize = 24.sp, color = Color.Black)
+        Text(text = selectedMovie.value.title, fontSize = 24.sp, color = Color.Black)
 
         // Movie Description
         Spacer(modifier = Modifier.height(24.dp))
         Text(
-            text = "",
+            text = selectedMovie.value.overview,
             fontSize = 16.sp,
             color = Color.Black
         )
