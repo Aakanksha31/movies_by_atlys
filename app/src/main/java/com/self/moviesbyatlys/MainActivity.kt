@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -16,8 +15,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.self.moviesbyatlys.ui.theme.MoviesByAtlysTheme
-import com.self.moviesbyatlys.ui.views.MovieDetailScreen
-import com.self.moviesbyatlys.ui.views.MovieListScreen
+import com.self.moviesbyatlys.ui.movie_detail.MovieDetailScreen
+import com.self.moviesbyatlys.ui.movie_list.MovieListScreen
+import com.self.moviesbyatlys.ui.viewmodel.MoviesViewModel
+import com.self.moviesbyatlys.utils.MovieDetail
+import com.self.moviesbyatlys.utils.MoviesList
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,7 @@ fun MovieApp(
 ) {
     Scaffold(
     ) { innerPadding ->
+        //compose navigation
         NavHost(
             navController = navController,
             startDestination = MoviesList,

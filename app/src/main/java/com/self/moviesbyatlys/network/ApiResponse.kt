@@ -1,5 +1,6 @@
-package com.self.moviesbyatlys
+package com.self.moviesbyatlys.network
 
+import com.self.moviesbyatlys.models.MovieItem
 import kotlinx.serialization.SerialName
 
 data class ApiResponse(

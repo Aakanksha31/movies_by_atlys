@@ -12,3 +12,5 @@ val Pink40 = Color(0xFF7D5260)
 
 val Background = Color(0xFFFAFAFA)
 val IconColour = Color(0xFF4B5565)
+val ContainerColour = Color(0xFFE3E8EF)
+val LabelColour = Color(0xFF9AA4B2)

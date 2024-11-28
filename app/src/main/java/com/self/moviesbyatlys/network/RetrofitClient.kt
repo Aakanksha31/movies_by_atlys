@@ -1,5 +1,6 @@
-package com.self.moviesbyatlys
+package com.self.moviesbyatlys.network
 
+import com.self.moviesbyatlys.data.remote.MoviesService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Movies by Atlys</string>
+    <string name="loading_movies">Loading movies...</string>
+    <string name="search_movies">Search movies</string>
 </resources>

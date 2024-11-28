@@ -1,4 +1,4 @@
-package com.self.moviesbyatlys.ui.views
+package com.self.moviesbyatlys.ui.movie_detail
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -21,9 +21,9 @@ import androidx.compose.ui.unit.sp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.integration.compose.placeholder
-import com.self.moviesbyatlys.MovieDetail
 import com.self.moviesbyatlys.R
 import com.self.moviesbyatlys.ui.theme.IconColour
+import com.self.moviesbyatlys.utils.MovieDetail
 
 
 @OptIn(ExperimentalGlideComposeApi::class)
@@ -42,7 +42,7 @@ fun MovieDetailScreen(selectedMovie: MovieDetail, onBackClick: () -> Unit) {
         ) {
             androidx.compose.material3.Icon(
                 tint = IconColour,
-                painter = painterResource(id = R.drawable.btn_back),
+                painter = painterResource(id = R.drawable.ic_back),
                 contentDescription = null
             )
         }
@@ -59,7 +59,7 @@ fun MovieDetailScreen(selectedMovie: MovieDetail, onBackClick: () -> Unit) {
             GlideImage(
                 modifier = Modifier.fillMaxSize(),
                 model = selectedMovie.moviePoster,
-                contentDescription = "",
+                contentDescription = null,
                 contentScale = ContentScale.FillBounds,
                 loading = placeholder(painterResource(id = R.drawable.placeholder)),
                 failure = placeholder(painterResource(id = R.drawable.placeholder))
@@ -70,8 +70,9 @@ fun MovieDetailScreen(selectedMovie: MovieDetail, onBackClick: () -> Unit) {
         // Movie Title
         Text(text = selectedMovie.movieTitle, fontSize = 24.sp, color = Color.Black)
 
-        // Movie Description
         Spacer(modifier = Modifier.height(24.dp))
+
+        // Movie Description
         Text(
             text = selectedMovie.movieDescription,
             fontSize = 16.sp,

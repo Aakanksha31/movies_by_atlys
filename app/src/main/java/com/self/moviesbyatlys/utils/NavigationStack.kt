@@ -1,4 +1,4 @@
-package com.self.moviesbyatlys
+package com.self.moviesbyatlys.utils
 
 import kotlinx.serialization.Serializable
 

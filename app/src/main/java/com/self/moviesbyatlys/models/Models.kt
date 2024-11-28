@@ -1,4 +1,4 @@
-package com.self.moviesbyatlys
+package com.self.moviesbyatlys.models
 
 import kotlinx.serialization.Serializable
 
@@ -14,3 +14,9 @@ data class MovieItem(
         val emptyState = MovieItem(title = "", poster_path = "", overview = "", id = 0, poster = "")
     }
 }
+
+data class MovieListUiState(
+    val loading: Boolean = false,
+    val movies: List<MovieItem> = emptyList(),
+    val query: String = ""
+)
