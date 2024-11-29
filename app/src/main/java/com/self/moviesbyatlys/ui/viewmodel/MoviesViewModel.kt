@@ -89,7 +89,7 @@ class MoviesViewModel @Inject constructor(private val repository: MoviesReposito
                 } else {
                     movieList.value.filter {
                         it.title.contains(
-                            query
+                            query, ignoreCase = true
                         )
                     }
                 })
