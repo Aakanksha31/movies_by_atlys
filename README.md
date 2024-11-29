@@ -25,3 +25,10 @@ A simple movie app that displays a list of movies, allows users to search for mo
 
 ![movie_detail](https://github.com/user-attachments/assets/cf14ab51-2746-40ce-8e65-a1581b625a68)
 
+## App demo recording
+https://github.com/user-attachments/assets/17a6b26c-0354-4a54-9774-cc8141d6ecca
+
+
+
+
+
