@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    kotlin("plugin.serialization").version("1.9.0")
+    alias(libs.plugins.compose.compiler)
+    kotlin("plugin.serialization").version("2.0.0")
+    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -76,6 +79,8 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.squareup.converter.gson)
     implementation (libs.compose)
+    implementation (libs.hilt.android)
+    kapt (libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -84,4 +89,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+}
+
+hilt {
+    enableAggregatingTask = false
 }

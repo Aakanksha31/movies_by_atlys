@@ -1,24 +1,24 @@
 [versions]
-agp = "8.5.1"
+agp = "8.5.2"
 compose = "1.0.0-beta01"
-converterGson = "2.7.2"
+converterGson = "2.11.0"
 converterScalars = "2.9.0"
 foundation = "1.7.5"
-hiltAndroid = "2.51"
+hiltAndroid = "2.51.1"
 hiltNavigationCompose = "1.2.0"
-kotlin = "1.9.0"
+kotlin = "2.0.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-kotlinxSerializationJson = "1.5.1"
+kotlinxSerializationJson = "1.6.3"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
 composeBom = "2024.04.01"
 loggingInterceptor = "4.11.0"
 material = "1.7.5"
 okhttp = "4.12.0"
-retrofit = "2.7.2"
+retrofit = "2.11.0"
 runtime = "1.7.5"
 ui = "1.7.5"
 uiTooling = "1.7.5"
@@ -37,6 +37,7 @@ compose = { module = "com.github.bumptech.glide:compose", version.ref = "compose
 converter-gson = { module = "com.squareup.retrofit2:converter-gson" }
 converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "converterScalars" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -62,4 +63,6 @@ androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navig
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
 

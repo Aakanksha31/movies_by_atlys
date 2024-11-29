@@ -2,11 +2,12 @@ package com.self.moviesbyatlys.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.self.moviesbyatlys.data.repo.MoviesRepositoryImpl
+import com.self.moviesbyatlys.data.repo.MoviesRepository
 import com.self.moviesbyatlys.models.MovieItem
 import com.self.moviesbyatlys.models.MovieListUiState
 import com.self.moviesbyatlys.models.OneOffEvent
 import com.self.moviesbyatlys.utils.safeLaunch
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,9 +15,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MoviesViewModel : ViewModel() {
-    private val repository = MoviesRepositoryImpl()
+@HiltViewModel
+class MoviesViewModel @Inject constructor(private val repository: MoviesRepository) : ViewModel() {
 
     private val _uiState = MutableStateFlow(MovieListUiState())
     val uiState: StateFlow<MovieListUiState> = _uiState.asStateFlow()
